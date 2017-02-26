@@ -27,27 +27,12 @@
       y.fontSize = "auto";
       y.title = "Gender";
       var p = myChart.addMeasureAxis("p", "PassengerId");
-      var legend = myChart.addLegend(400, 50, 330, 20, "right");
+      myChart.addLegend(400, 50, 330, 20, "right");
 
-      //Changing legend fontsize
-      legend.fontSize = "auto";
-
-      //Changing pie color
-      myChart.assignColor("Survived", "SkyBlue");
-      myChart.assignColor("Died", "Salmon");
-  
       //Adding the series
       var pies = myChart.addSeries("Survived", dimple.plot.pie);
       pies.aggregate = dimple.aggregateMethod.count;
       pies.radius = 40;
-
-      //Customizing the tooltips
-      pies.getTooltipText = function(e) {
-        return [
-          "Percentage who " + e.aggField[0].toLowerCase() + ":",
-          Math.round(e.piePct * 100) + "%",
-        ];
-      };
       
       myChart.draw();
      }); 
