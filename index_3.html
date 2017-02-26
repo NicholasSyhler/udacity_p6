@@ -9,6 +9,7 @@
 
     d3.csv("titanic_data.csv", function(data) {
 
+      //Changing survival status label from binary to strings
       for (n in data) {
         if (data[n].Survived == "1") {
           data[n].Survived = "Survived";
@@ -17,6 +18,7 @@
         };
       };
 
+      //Adding chart and axes
       var myChart = new dimple.chart(svg, data);
       var x = myChart.addCategoryAxis("x", "Pclass");
       x.fontSize = "auto";
@@ -26,20 +28,27 @@
       y.title = "Gender";
       var p = myChart.addMeasureAxis("p", "PassengerId");
       var legend = myChart.addLegend(400, 50, 330, 20, "right");
+
+      //Changing legend fontsize
       legend.fontSize = "auto";
+
+      //Changing pie color
       myChart.assignColor("Survived", "SkyBlue");
       myChart.assignColor("Died", "Salmon");
-
+  
+      //Adding the series
       var pies = myChart.addSeries("Survived", dimple.plot.pie);
       pies.aggregate = dimple.aggregateMethod.count;
       pies.radius = 40;
 
+      //Customizing the tooltips
       pies.getTooltipText = function(e) {
         return [
           "Percentage who " + e.aggField[0].toLowerCase() + ":",
           Math.round(e.piePct * 100) + "%",
         ];
       };
+      
       myChart.draw();
      }); 
   </script>
