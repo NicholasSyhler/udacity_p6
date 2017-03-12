@@ -1,7 +1,7 @@
 <head>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style_0.4.css">
 </head>
 <body>
   <h1>Survival on the Titanic by gender and passenger class</h1>
@@ -36,8 +36,7 @@
       //Customizing the tooltips
       bar.getTooltipText = function(e) {
         return [
-          e.yCount + " (" + Math.round(e.cy * 100) + "%) " + e.xField[1] + " survivors",
-          console.log(e)
+          e.yCount + " " + e.xField[1] + " survivors",
         ];
       }; 
       

@@ -22,6 +22,7 @@ By Udacity. Friends don't let friends use pie charts...or pie matrices...
 And an introductory explanation was needed. 
 -4th review:
 One reviewer present.
+She quickly understood the story about women in a better passenger class had a higher survival rate. She did note that it would be nice to add the exact percentage in the tooltip. I added the percentage to the tooltip.
 
 Resources:
 -dimplejs documentation
